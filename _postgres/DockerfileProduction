@@ -1,0 +1,12 @@
+FROM postgres:13.3-alpine
+
+COPY ./_postgres/install-pguuid.sql /docker-entrypoint-initdb.d/
+
+COPY ./_postgres/postgresql.conf /etc/postgresql/postgresql.conf
+
+COPY ./sql/* /docker-entrypoint-initdb.d/
+
+#COPY my-pg_hba.conf /etc/postgresql/pg_hba.conf
+
+# replication:
+# https://medium.com/@2hamed/replicating-postgres-inside-docker-the-how-to-3244dc2305be

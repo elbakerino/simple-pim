@@ -1,0 +1,83 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "Simple-PIM API",
+        "license": {
+            "name": "UNLICENSED"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333",
+            "description": "Local dev server"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Route ID: home",
+                "operationId": "home",
+                "parameters": []
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "Category": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "position": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": [
+                            "object",
+                            "null"
+                        ]
+                    }
+                }
+            },
+            "Product": {
+                "type": "object"
+            },
+            "Error": {
+                "type": "object",
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "properties": {
+                    "code": {
+                        "type": "integer"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

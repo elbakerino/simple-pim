@@ -1,0 +1,10 @@
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae36570-321d-11ec-a5d1-0242ac180003', '0ab08c26-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae36570-321d-11ec-a5d1-0242ac180003', '0ab2376a-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae36570-321d-11ec-a5d1-0242ac180003', '0ab34394-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae36570-321d-11ec-a5d1-0242ac180003', '0ab46d64-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae36570-321d-11ec-a5d1-0242ac180003', '0ab5fb5c-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae4570a-321d-11ec-a5d1-0242ac180003', '0ab729b4-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae4570a-321d-11ec-a5d1-0242ac180003', '0ab84bf0-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae4570a-321d-11ec-a5d1-0242ac180003', '0ab99712-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae571a8-321d-11ec-a5d1-0242ac180003', '0abad14a-321d-11ec-b22f-0242ac180003');
+INSERT INTO public.products_to_category (category, product) VALUES ('9ae571a8-321d-11ec-a5d1-0242ac180003', '0abbe076-321d-11ec-b22f-0242ac180003');

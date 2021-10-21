@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  app:
+    image: "bemiteu/satellite-app:${APP_BUILD_VERSION}"
+    build:
+      context: .
+      dockerfile: DockerfileProduction
+      target: php_api
+      cache_from:
+        - bemiteu/satellite-app
+    environment:
+      env: prod
+      #satellite_index_log_perf: "yes"
+      DOCKER_SERVICE_ID: "{{.Service.ID}}"
+      DOCKER_SERVICE_NAME: "{{.Service.Name}}"
+      DOCKER_SERVICE_LABELS: "{{.Service.Labels}}"
+      DOCKER_NODE_ID: "{{.Node.ID}}"
+      DOCKER_NODE_HOST: "{{.Node.Hostname}}"
+      DOCKER_TASK_ID: "{{.Task.ID}}"
+      DOCKER_TASK_NAME: "{{.Task.Name}}"
+      DOCKER_TASK_SLOT: "{{.Task.Slot}}"
+    volumes:
+      - ./:/var/www/html
+
+  worker:
+    image: "bemiteu/satellite-app-worker:${APP_BUILD_VERSION}"
+    build:
+      context: .
+      dockerfile: DockerfileProduction
+      target: php_worker
+      cache_from:
+        # using the latest `app` image also for caching worker base layers,
+        # thus only pulling one image and not two,
+        # the rebuild time for new layers isn't so important as the time to download images
+        # todo: validate caching, in CI it seems to download the same image twice and concurrently
+        - bemiteu/satellite-app
+    environment:
+      env: prod
+    volumes:
+      - ./:/var/www/html
+
+#  nginx:
+#    build:
+#      context: ./_nginx
+#      dockerfile: Dockerfile
+#    depends_on:
+#      - app
+#    ports:
+#      - '3333:80'
