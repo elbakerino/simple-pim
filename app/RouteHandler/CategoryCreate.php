@@ -3,7 +3,6 @@
 namespace App\RouteHandler;
 
 use App\Repository\CategoryRepository;
-use App\Repository\ProductRepository;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;

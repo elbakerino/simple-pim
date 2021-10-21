@@ -31,7 +31,8 @@ class CategoryRepository {
         $pos_str = $this->padPosition($position);
         return [
             'uuid' => 'category#' . $uuid,
-            'data_key' => 'category#' . $pos_str . '#' . $uuid,
+            'data_key' => 'category#' . $uuid,
+            'sort_key' => 'category#' . $pos_str . '#' . $uuid,
             'category_uuid' => $uuid,
             'category_parent' => $parent ?? 'root',
             'category_pk' => $uuid,
@@ -82,7 +83,6 @@ class CategoryRepository {
             'TableName' => $this->table,
         ];
 
-        $query['KeyConditionExpression'] = '#uuid__key = :uuid__val';
         $res = $this->dynamo->client()->query($query);
         $items = $res->offsetGet('Items');
 
@@ -117,6 +117,10 @@ class CategoryRepository {
             // todo: also decode `labels` here, stored as JSON string in DynamoDB
             'items' => $this->dynamo->itemToArray($items[0]),
         ];
+    }
+
+    public function update(string $uuid) {
+        throw new \RuntimeException('not implemented');
     }
 
     public function delete(string $uuid) {
